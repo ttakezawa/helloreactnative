@@ -29,7 +29,23 @@ function Feed({navigation}) {
   );
 }
 
+import {useFocusEffect} from '@react-navigation/native';
+import React = require('react');
+
 function Profile() {
+  useFocusEffect(
+    React.useCallback(() => {
+      // Do something when the screen is focused
+      console.log('profile focus');
+
+      return () => {
+        // Do something when the screen is unfocused
+        // Useful for cleanup functions
+        console.log('profile blur');
+      };
+    }, []),
+  );
+
   return (
     <View>
       <Text>Here is Profile</Text>
@@ -38,6 +54,19 @@ function Profile() {
 }
 
 function Settings({navigation}) {
+  useFocusEffect(
+    React.useCallback(() => {
+      // Do something when the screen is focused
+      console.log('settings focus');
+
+      return () => {
+        // Do something when the screen is unfocused
+        // Useful for cleanup functions
+        console.log('settings blur');
+      };
+    }, []),
+  );
+
   return (
     <View>
       <Text>Here is Settings</Text>
